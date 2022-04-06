@@ -1,0 +1,40 @@
+<div class="input-group w-50" >
+  <span class="input-group-text">Nome</span>
+  <input type="text" aria-label="Nome" id="nome" class="form-control" id="validationDefault01" [(ngModel)]="pesso"
+         #name="ngModel" required minlength="2">
+  <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Adicione pessoa a tabela">
+<button type="button" class="btn btn-success" id="adicionar" [disabled]="name.invalid && pesso.trim().length === 0 "
+        (click)="adicionar()">Adicionar</button>
+  </span>
+</div>
+<br/>
+<table class="table table-dark table-striped w-50 table-responsive justify-content-center">
+  <thead>
+  <tr>
+    <th scope="col">Numero</th>
+    <th scope="col">Nome</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <ng-container *ngFor="let pesso of timesSelecionados; let i = index" >
+    <tr>
+      <th scope="row">{{ i + 1}}</th>
+      <td contentEditable="true">{{pesso}}</td>
+      <th>
+<!--        <button type="button" class="btn btn-success m-1" (click)="editarListaSorteada(pesso)">editar</button>-->
+        <button type="button" class="btn btn-danger" *ngIf="i == 0 || i == 1" (click)="perdedor(i)">Perdedor</button>
+      </th>
+    </tr>
+  </ng-container>
+
+  <br/>
+<!--  <tr>-->
+<!--    <th scope="col">Time </th>-->
+<!--    <td>Time </td>-->
+<!--  </tr>-->
+
+  </tbody>
+</table>
+

@@ -1,0 +1,5 @@
+#mydiv1{
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space: pre;
+}
